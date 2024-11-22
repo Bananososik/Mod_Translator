@@ -1,0 +1,70 @@
+2024-11-22 20:53:03,219 - DEBUG - Программа запущена
+2024-11-22 20:53:07,554 - DEBUG - Выбор мода для перевода...
+2024-11-22 20:53:07,554 - DEBUG - Выбор папки...
+2024-11-22 20:53:12,434 - DEBUG - Папка выбрана: C:/Users/Ivan/Desktop/Mod_Translator/mods
+2024-11-22 20:53:15,098 - DEBUG - Выбранный индекс: 0
+2024-11-22 20:53:15,098 - DEBUG - Выбор папки...
+2024-11-22 20:53:20,729 - DEBUG - Папка выбрана: C:/Users/Ivan/Desktop/Mod_Translator/translated_mods
+2024-11-22 20:53:20,729 - DEBUG - Открытие редактора перевода для: C:/Users/Ivan/Desktop/Mod_Translator/mods\antiblocksrechiseled-0.4.3.jar
+2024-11-22 20:53:20,778 - DEBUG - Перевод текста с en на ru: Bright Black AntiBlock
+2024-11-22 20:53:21,997 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:22,665 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:22,672 - DEBUG - Перевод текста с en на ru: Bright Black Bordered AntiBlock
+2024-11-22 20:53:23,623 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:24,319 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:24,322 - DEBUG - Перевод текста с en на ru: Bright Blue AntiBlock
+2024-11-22 20:53:25,336 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:26,070 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:26,075 - DEBUG - Перевод текста с en на ru: Bright Blue Bordered AntiBlock
+2024-11-22 20:53:27,063 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:27,738 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:27,740 - DEBUG - Перевод текста с en на ru: Bright Cyan AntiBlock
+2024-11-22 20:53:28,699 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:29,339 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:29,345 - DEBUG - Перевод текста с en на ru: Bright Cyan Bordered AntiBlock
+2024-11-22 20:53:30,384 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:31,220 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:31,230 - DEBUG - Перевод текста с en на ru: Bright Green AntiBlock
+2024-11-22 20:53:32,908 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:33,699 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:33,708 - DEBUG - Перевод текста с en на ru: Bright Green Bordered AntiBlock
+2024-11-22 20:53:35,316 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:36,183 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:36,201 - DEBUG - Перевод текста с en на ru: Bright Magenta AntiBlock
+2024-11-22 20:53:37,825 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:38,641 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:38,653 - DEBUG - Перевод текста с en на ru: Bright Magenta Bordered AntiBlock
+2024-11-22 20:53:40,386 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:41,235 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:41,254 - DEBUG - Перевод текста с en на ru: Bright Orange AntiBlock
+2024-11-22 20:53:42,796 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:43,628 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:43,638 - DEBUG - Перевод текста с en на ru: Bright Orange Bordered AntiBlock
+2024-11-22 20:53:45,436 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:46,311 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:46,324 - DEBUG - Перевод текста с en на ru: Bright Red AntiBlock
+2024-11-22 20:53:47,957 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:48,875 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:48,891 - DEBUG - Перевод текста с en на ru: Bright Red Bordered AntiBlock
+2024-11-22 20:53:50,453 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:51,169 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:51,177 - DEBUG - Перевод текста с en на ru: Bright White AntiBlock
+2024-11-22 20:53:52,552 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:53,330 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:53,344 - DEBUG - Перевод текста с en на ru: Bright White Bordered AntiBlock
+2024-11-22 20:53:54,952 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:55,760 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:55,772 - DEBUG - Перевод текста с en на ru: Bright Yellow AntiBlock
+2024-11-22 20:53:57,369 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:53:58,143 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:53:58,154 - DEBUG - Перевод текста с en на ru: Bright Yellow Bordered AntiBlock
+2024-11-22 20:53:59,670 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:54:00,495 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:54:00,503 - DEBUG - Перевод текста с en на ru: Bright Black AntiBlock Button
+2024-11-22 20:54:01,920 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:54:02,644 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:54:02,656 - DEBUG - Перевод текста с en на ru: Bright Blue AntiBlock Button
+2024-11-22 20:54:04,175 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"
+2024-11-22 20:54:04,974 - DEBUG - Ошибка при переводе текста: 'NoneType' object has no attribute 'group'
+2024-11-22 20:54:04,982 - DEBUG - Перевод текста с en на ru: Bright Cyan AntiBlock Button
+2024-11-22 20:54:06,620 - DEBUG - HTTP Request: GET https://translate.google.com "HTTP/1.1 200 OK"

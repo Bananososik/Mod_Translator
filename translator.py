@@ -6,17 +6,30 @@ import itertools
 import threading
 import ctypes
 import json
-from translate import Translator
+import logging
+from googletrans import Translator
 from tkinter import Toplevel, Listbox, Label, Entry
 
 # Enable High DPI Awareness
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 
+# Setup logging
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s', filename='program.log', filemode='w')
+
+def log(message):
+    log_text.insert(END, message + "\n")
+    log_text.see(END)
+    print(message)
+    logging.debug(message)
+
 def select_folder():
+    log("Выбор папки...")
     folder_selected = filedialog.askdirectory()
+    log(f"Папка выбрана: {folder_selected}")
     return folder_selected
 
 def find_mods_without_ru(folder, log):
+    log("Поиск модов без ru_ru...")
     mods_without_ru = []
     try:
         for filename in os.listdir(folder):
@@ -41,6 +54,7 @@ def find_mods_without_ru(folder, log):
     return mods_without_ru
 
 def copy_mods_to_folder(mods, src_folder, dest_folder, log):
+    log("Копирование модов в папку...")
     try:
         if not os.path.exists(dest_folder):
             os.makedirs(dest_folder)
@@ -52,6 +66,7 @@ def copy_mods_to_folder(mods, src_folder, dest_folder, log):
         log(f"Ошибка при копировании модов: {e}")
 
 def write_mods_to_file(mods, filepath, log):
+    log("Запись модов в файл...")
     try:
         with open(filepath, 'w') as file:
             for mod in mods:
@@ -69,10 +84,11 @@ def get_unique_path(base_path):
             return new_path
 
 def process_mods(log):
+    log("Обработка модов...")
     try:
         mods_folder = select_folder()
         if mods_folder:
-            log("Выбрана папка: " + mods_folder)
+            log("Папка выбрана: " + mods_folder)
             mods_without_ru = find_mods_without_ru(mods_folder, log)
             unique_mods_folder = get_unique_path('./mods')
             unique_list_file = get_unique_path('./mods_list.txt')
@@ -85,18 +101,24 @@ def process_mods(log):
         log(f"Ошибка в процессе обработки модов: {e}")
 
 def run_process(log):
+    log("Запуск процесса...")
     threading.Thread(target=process_mods, args=(log,)).start()
 
 def translate_text(text, src_lang='en', dest_lang='ru'):
+    log(f"Перевод текста с {src_lang} на {dest_lang}: {text}")
     try:
         translator = Translator(from_lang=src_lang, to_lang=dest_lang)
         translation = translator.translate(text)
+        if translation is None:
+            raise ValueError("Translation returned None")
+        log(f"Перевод: {translation}")
         return translation
     except Exception as e:
         log(f"Ошибка при переводе текста: {e}")
         return text
-
+        
 def open_translation_editor(mod_path, dest_folder):
+    log(f"Открытие редактора перевода для: {mod_path}")
     try:
         with zipfile.ZipFile(mod_path, 'r') as jar:
             en_us_path = [name for name in jar.namelist() if 'lang/en_us.json' in name][0]
@@ -129,6 +151,7 @@ def open_translation_editor(mod_path, dest_folder):
             row += 1
 
         def save_translation():
+            log("Сохранение перевода...")
             try:
                 new_translations = {key: entry.get() for key, entry in entries.items()}
                 ru_ru_path = en_us_path.replace('en_us.json', 'ru_ru.json')
@@ -146,6 +169,7 @@ def open_translation_editor(mod_path, dest_folder):
         log(f"Ошибка при открытии редактора перевода: {e}")
 
 def update_translated_list(mod_name):
+    log(f"Обновление списка переведенных модов: {mod_name}")
     try:
         list_path = './translated_mods_list.txt'
         with open(list_path, 'a') as file:
@@ -153,12 +177,18 @@ def update_translated_list(mod_name):
     except Exception as e:
         log(f"Ошибка при обновлении списка переведенных модов: {e}")
 
+def scan_mod_files(mods_folder):
+    for f in os.listdir(mods_folder):
+        if f.endswith(".jar"):
+            yield f
+
 def select_mod_for_translation(log):
+    log("Выбор мода для перевода...")
     mods_folder = select_folder()
     if not mods_folder:
         return
 
-    mod_files = [f for f in os.listdir(mods_folder) if f.endswith(".jar")]
+    mod_files = list(scan_mod_files(mods_folder))
     list_window = Toplevel(root)
     list_window.title("Выбор мода для перевода")
     list_window.geometry("600x600")
@@ -186,7 +216,7 @@ def select_mod_for_translation(log):
 
     def on_translate():
         selected_idx = selected_mod.get()
-        log(f"Selected index: {selected_idx}")
+        log(f"Выбранный индекс: {selected_idx}")
         if selected_idx >= 0 and selected_idx < len(mod_files):
             mod_path = os.path.join(mods_folder, mod_files[selected_idx])
             dest_folder = select_folder()
@@ -195,13 +225,13 @@ def select_mod_for_translation(log):
             open_translation_editor(mod_path, dest_folder)
             list_window.destroy()
         else:
-            log("Invalid selection index!")
+            log("Неверный индекс выбора!")
 
     translate_button = Button(list_window, text="Перевести", command=on_translate)
     translate_button.pack(side="top", anchor="ne", padx=10, pady=10)
 
 def main():
-    global root
+    global root, log_text
     root = Tk()
     root.title("Переводчик модов для Minecraft")
 
@@ -218,18 +248,15 @@ def main():
     scrollbar.pack(side='right', fill='y')
     log_text.config(yscrollcommand=scrollbar.set)
 
-    def log(message):
-        log_text.insert(END, message + "\n")
-        log_text.see(END)
-        print(message)
-
     button1 = Button(frame_buttons, text="Выбрать папку и обработать моды", command=lambda: run_process(log))
     button1.pack(side='left', padx=5, pady=5)
 
     button_translate = Button(frame_buttons, text="Перевести мод", command=lambda: select_mod_for_translation(log))
     button_translate.pack(side='left', padx=5, pady=5)
 
+    log("Программа запущена")
     root.mainloop()
+    log("Программа остановлена")
 
 if __name__ == "__main__":
     main()
